@@ -36,6 +36,8 @@ public class UserDB {
                 String lastName = rs.getString(4);
                 String password = rs.getString(5);
                 String role = rs.getString(6);
+                User user = new User(email,firstName,lastName,password,role,active);
+                listOfUsers.add(user);
             }
 
         } finally {
