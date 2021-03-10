@@ -5,10 +5,21 @@
  */
 package services;
 
+import dataaccess.UserDB;
+import java.util.List;
+import models.User;
+
 /**
  *
  * @author thoma
  */
 public class UserService {
     
+    public List<User> getAll() throws Exception{
+        UserDB userDB = new UserDB();
+        List<User> userList = userDB.getAll();
+        return userList;
+    }
+        
+        
 }
