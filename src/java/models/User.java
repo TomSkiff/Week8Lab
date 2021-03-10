@@ -24,13 +24,14 @@ public class User implements Serializable{
     
     }
     
-    public User (String email, String firstName,String lastName,String password,String role){
+    public User (String email, String firstName,String lastName,String password,String role,boolean active){
         
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.role = new Role(role);
+        this.active = active;
     }
 
     public String getEmail() {
