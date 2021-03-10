@@ -101,5 +101,28 @@ public class UserDB {
         }
     }
     
+    public void update(User user) throws Exception {
+        ConnectionPool cp = ConnectionPool.getInstance();
+        Connection con = cp.getConnection();
+        PreparedStatement ps = null;
+        String sql = "UPDATE note SET active=?, first_name=?, last_name=?,password=?,role=? WHERE email=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setBoolean(1, user.isActive());
+            ps.setString(2, user.getFirstName());
+            ps.setString(3, user.getLastName());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, user.getRole());
+            ps.setString(6, user.getEmail());
+            ps.executeUpdate();
+        } finally {
+            DBUtil.closePreparedStatement(ps);
+            cp.freeConnection(con);
+        }
+    }
+    
+   
+    
 
 }
