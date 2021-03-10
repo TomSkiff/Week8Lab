@@ -18,7 +18,7 @@ public class User implements Serializable{
     private String firstName;
     private String lastName;
     private String password;
-    private String role;
+    private Role role;
     
     public User(){
     
@@ -30,7 +30,7 @@ public class User implements Serializable{
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.role = role;
+        this.role = new Role(role);
     }
 
     public String getEmail() {
@@ -74,12 +74,10 @@ public class User implements Serializable{
     }
 
     public String getRole() {
-        return role;
+        return role.getRole();
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role.setRole(role);
     }
-    
-    
 }
